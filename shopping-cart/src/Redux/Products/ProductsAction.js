@@ -28,5 +28,4 @@ export const fetchProducts = () => {
       dispatch(fetchProductsFailure(errorMessage))
     })
   };
-  axios.fetch();
 };
