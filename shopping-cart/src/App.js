@@ -4,12 +4,16 @@ import store from "./Redux/store";
 import { Routes, Route , Navigate } from "react-router-dom";
 
 import "./App.css";
+import MainNavbar from "./Components/MainNavbar/MainNavbar";
+import Cart from "./Components/Cart/Cart";
 
 function App() {
   return (
     <Provider store={store}>
+      <MainNavbar/>
       <Routes>
         <Route path="/Store" element={<Store/>}/>
+        <Route path="/Cart" element={<Cart/>}/>
         <Route path="/*" element={<Navigate to="/Store"/>}/>
       </Routes>
     </Provider>

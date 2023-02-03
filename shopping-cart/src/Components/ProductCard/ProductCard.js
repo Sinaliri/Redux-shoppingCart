@@ -1,26 +1,31 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchProducts } from "../../Redux/Products/ProductsAction";
-import { Card, Button , Col } from "react-bootstrap";
+import React from "react";
+import { Col } from "react-bootstrap";
 import { shorten } from "../../helper function/shorten";
+//style
+import "./ProductCard.scss"
 const ProductCard = ({ item }) => {
   console.log(item);
   return (
-
-    <Col xs={12} md={6} lg={3}>
-    <Card  style={{ width: "15rem" }}>
-      <Card.Img variant="top" src={item.image} style={{ width:"15rem",height: "15rem",padding:"1rem" }} />
-      <Card.Body>
-        <Card.Title>{shorten(item.title)}</Card.Title>
-        <Card.Text>{item.price}</Card.Text>
-      </Card.Body>
-      <div className="buttoncontainer d-flex" >
-
-        <Button variant="primary">+</Button>
-        <span>0</span>
-        <Button variant="primary">-</Button>
+    <Col xs={12} md={6} lg={3} className="mb-4">
+      <div className="Card">
+        <div className="imgcontainer">
+        <img className="CardImg" src={item.image} alt={item.id} />
+          <div className="overlay"></div>
+        </div>
+        <div className="CardBody" style={{ backgroundColor: "#f7f7f7" }}>
+          <p className="CardTitle text-nowrap">{shorten(item.title)}</p>
+          <span className="ms-3 mt-2">{item.price} $</span>
+          <div className="buttoncontainer d-flex justify-content-around align-items-center">
+            <button variant="primary" style={{ width: "40%" }}>
+              +
+            </button>
+            <span className="" style={{ width: "10%", textAlign: "center" }}>0</span>
+            <button variant="primary" style={{ width: "40%" }}>
+              -
+            </button>
+          </div>
+        </div>
       </div>
-    </Card>
     </Col>
   );
 };
