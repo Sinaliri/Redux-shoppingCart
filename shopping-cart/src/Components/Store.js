@@ -8,18 +8,27 @@ import { Container , Row} from "react-bootstrap"
 
 const Store = () => {
   useEffect(() => {
-    Dispatch(fetchProducts());
+    if(!StoreProducts.products.length){
+
+      Dispatch(fetchProducts());
+    }
   }, []);
   const Dispatch = useDispatch();
   const StoreProducts = useSelector((state) => state.productsState);
 
   return (
-    <Container>
-      <Row className="d-flex justify-content-around ">
+    <Container >
+      <Row className="d-flex justify-content-around " >
+        {
+          StoreProducts.loading ? 
+          <h2>..loading</h2>:
+          StoreProducts.errors ? 
+          <p>some thing is wrong</p>:
+          StoreProducts.products.map((item) => {
+            return <ProductCard item={item} key={item.id} />;
+          })}
 
-      {StoreProducts.products.map((item) => {
-        return <ProductCard item={item} key={item.id} />;
-      })}
+         
       </Row>
     </Container>
   );

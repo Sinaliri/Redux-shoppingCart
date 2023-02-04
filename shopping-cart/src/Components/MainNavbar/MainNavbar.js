@@ -8,7 +8,7 @@ const MainNavbar = () => {
         <Container>
           <Nav className="me-auto">
             <Link to="/Store" >Store</Link>
-            <Link to="/Cart" >Cart</Link>
+            <Link className='ms-3'  to="/Cart" >Cart</Link>
             
           </Nav>
         </Container>
