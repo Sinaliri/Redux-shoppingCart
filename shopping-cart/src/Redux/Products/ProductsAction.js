@@ -20,7 +20,7 @@ const fetchProductsFailure = (error) => {
 export const fetchProducts = () => {
   return (dispatch) => {
     dispatch(fetchProductsRequest());
-    axios.get("https://fakestoreapi.com/products").then((response) => {
+    axios.get("https://api.escuelajs.co/api/v1/products").then((response) => {
       const products = response.data;
       dispatch(fetchProductsSuccess(products))
     }).catch(error => {

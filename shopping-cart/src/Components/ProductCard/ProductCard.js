@@ -10,7 +10,7 @@ const ProductCard = ({ item }) => {
     <Col xs={12} md={6} lg={3} className="mb-4">
       <div className="Card">
         <div className="imgcontainer">
-          <img className="CardImg" src={item.image} alt={item.id} />
+          <img className="CardImg" src={item.images[0]} alt={item.id} />
           <div className="overlay"></div>
         </div>
         <div className="CardBody" style={{ backgroundColor: "#f7f7f7" }}>
